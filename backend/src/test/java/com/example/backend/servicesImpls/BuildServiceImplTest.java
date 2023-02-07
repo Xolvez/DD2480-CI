@@ -33,5 +33,16 @@ class BuildServiceImplTest {
         assertNotNull(insertedBuild);
         assertNotNull(insertedBuild.getId());
     }
+
+    @Test
+    void findAll() {
+        assertEquals(0, buildService.findAll().size());
+
+        buildService.insert(new Build());
+        assertEquals(1, buildService.findAll().size());
+
+        buildService.insert(new Build());
+        assertEquals(2, buildService.findAll().size());
+    }
 }
 

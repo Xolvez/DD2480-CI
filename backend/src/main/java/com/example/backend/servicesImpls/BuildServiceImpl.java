@@ -7,6 +7,8 @@ import com.example.backend.models.Build;
 import com.example.backend.daos.BuildDao;
 import com.example.backend.services.BuildService;
 
+import java.util.List;
+
 @Component
 public class BuildServiceImpl implements BuildService {
 
@@ -16,6 +18,11 @@ public class BuildServiceImpl implements BuildService {
     @Override
     public Build insert(Build build) {
         return buildDao.insert(build);
+    }
+
+    @Override
+    public List<Build> findAll() {
+        return buildDao.findAll();
     }
 }
 
