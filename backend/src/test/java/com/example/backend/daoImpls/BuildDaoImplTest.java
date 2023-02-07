@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
 @SpringBootTest
 class BuildDaoImplTest {
@@ -33,5 +34,16 @@ class BuildDaoImplTest {
 
         assertNotNull(insertedBuild);
         assertNotNull(insertedBuild.getId());
+    }
+
+    @Test
+    void findAll() {
+        assertEquals(0, buildDao.findAll().size());
+
+        buildDao.insert(new Build());
+        assertEquals(1, buildDao.findAll().size());
+
+        buildDao.insert(new Build());
+        assertEquals(2, buildDao.findAll().size());
     }
 }
