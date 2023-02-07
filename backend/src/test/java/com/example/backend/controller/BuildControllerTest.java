@@ -25,6 +25,9 @@ class BuildControllerTest {
 
     @Autowired
     private BuildController buildController;
+    
+    @Autowired
+    private BuildDao buildDao;
 
     @BeforeEach
     @AfterEach
@@ -36,10 +39,10 @@ class BuildControllerTest {
     void findAll() {
         assertEquals(0, buildController.getBuilds().size());
 
-        buildController.buildService.insert(new Build());
+        buildDao.insert(new Build());
         assertEquals(1, buildController.getBuilds().size());
 
-        buildController.buildService.insert(new Build());
+        buildDao.insert(new Build());
         assertEquals(2, buildController.getBuilds().size());
     }
 }
