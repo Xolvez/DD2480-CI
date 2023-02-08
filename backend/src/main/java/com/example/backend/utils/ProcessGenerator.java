@@ -1,5 +1,7 @@
 package com.example.backend.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.lang.ProcessBuilder;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,6 +10,7 @@ import java.lang.StringBuilder;
 import java.util.Locale;
 import java.io.File;
 
+@Component
 public class ProcessGenerator {
 
     public ProcessGenerator() {}

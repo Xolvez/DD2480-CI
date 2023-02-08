@@ -15,7 +15,7 @@ function useEvents() {
         // Simulate delay
         await new Promise((resolve) => setTimeout(resolve, 3000));
 
-        const response = await fetch("http://localhost:8080/events", {
+        const response = await fetch("http://localhost:8080/build", {
           method: "GET"
         });
 
