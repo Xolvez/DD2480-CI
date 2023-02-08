@@ -5,6 +5,7 @@ import mockEvents from './consts/mockEvents';
 
 beforeEach(() => {
   fetch.resetMocks();
+  jest.resetAllMocks();
 })
 
 test("navigates to events", () => {
