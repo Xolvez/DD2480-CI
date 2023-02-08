@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.models.GithubRequest;
 import com.example.backend.services.BuildService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
