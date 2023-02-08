@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function useEvents() {
 
@@ -11,6 +11,9 @@ function useEvents() {
     async function fetchEvents() {
       try {
         setIsFetching(true);
+
+        // Simulate delay
+        await new Promise((resolve) => setTimeout(resolve, 3000));
 
         const response = await fetch("http://localhost:8080/events", {
           method: "GET"
@@ -43,8 +46,13 @@ function useEvents() {
     }
   }, [isFetched, isFetching]);
 
+  function refetch() {
+    setIsFetched(false);
+    setIsFetching(false);
+    setError(null);
+  }
 
-  return { events, isFetching: isFetching || (!isFetched && !isFetching), isFetched, fetchError: error };
+  return { events, isFetching: isFetching || (!isFetched && !isFetching), isFetched, fetchError: error, refetch };
 }
 
 export default useEvents
