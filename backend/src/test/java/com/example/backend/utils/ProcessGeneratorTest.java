@@ -4,11 +4,17 @@ import java.io.File;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 class ProcessGeneratorTest {
-
-    private ProcessGenerator processGenerator = new ProcessGenerator();
-    private RepoCloner repoCloner = new RepoCloner();
+    
+    @Autowired
+    private ProcessGenerator processGenerator;
+    
+    @Autowired
+    private RepoCloner repoCloner;
 
     @Test
     //Compile the test project. The project should compile, so getStatus() should return true.
