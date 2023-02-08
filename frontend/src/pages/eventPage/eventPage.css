@@ -1,0 +1,41 @@
+.event-page {
+  
+}
+
+.event-header {
+  display: flex;
+  align-items: baseline;
+  gap: .8rem;
+}
+
+.event-alternative {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.event-alternative div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-status {
+  padding: .5rem 2rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.event-status[success = "true"] {
+  background-color: rgb(235, 249, 235);
+  /*background-color: rgb(173, 240, 173);*/
+  color: green;
+}
+
+.event-status[success = "false"] {
+  background-color: rgb(253, 235, 235);
+  /*background-color: rgb(255, 197, 197);*/
+  color: red;
+}

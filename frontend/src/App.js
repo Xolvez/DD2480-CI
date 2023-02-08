@@ -7,12 +7,12 @@ import EventsPage from './pages/eventsPage/EventsPage';
 
 function App() {
 
-  const { events, isFetching, isFetched, fetchError } = useEvents();
+  const { events, isFetching, isFetched, fetchError, refetch } = useEvents();
 
   return (
     <div className="app">
       <Routes>
-        <Route path="events" element={ <EventsPage events={events} isFetching={isFetching} isFetched={isFetched} fetchError={fetchError} /> } />
+        <Route path="events" element={ <EventsPage events={events} isFetching={isFetching} isFetched={isFetched} fetchError={fetchError} refetch={refetch}/> } />
         <Route path="event/:eventID" element={ <EventPage events={events} isFetchingEvents={isFetching} fetchError={fetchError} /> } />
         <Route path="*" element={ <Navigate to="events" /> } />
       </Routes>

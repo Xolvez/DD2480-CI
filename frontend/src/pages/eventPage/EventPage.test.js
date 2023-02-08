@@ -20,10 +20,10 @@ function mockUseParamsWithEventID(mockEventID) {
   }));
 }
 
-test("renders fetching if fetching", () => {
+test("renders Loading if fetching", () => {
   mockUseParamsWithEventID("abc");
   render(<EventPage isFetchingEvents={true} />);
-  expect(screen.getByText("fetching")).toBeInTheDocument();
+  expect(screen.getByText("Loading event data")).toBeInTheDocument();
 });
 
 test("renders error if error", () => {
