@@ -13,6 +13,6 @@ class EmailServiceImplTest {
     @Test
     void test_email() {
         String test_to_address = "ysiyang@126.com";
-        emailService.email_success("ysiyang@126.com");
+        emailService.email_success(test_to_address);
     }
 }
