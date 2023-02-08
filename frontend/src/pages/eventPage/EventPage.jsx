@@ -1,53 +1,34 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
-const columns = [
-  {
-    header: "Name",
-    accessor: "name"
-  },
-  {
-    header: "Type",
-    accessor: "type"
-  }
-];
+function EventPage({ events, isFetchingEvents, fetchError }) {
 
-function EventPage({ events, isFetching, fetchError }) {
+  const eventID = useParams().eventID;
+  const event = !events ? null : events.find((event) => event.id === eventID);
 
-  function renderEvents() {
-    if(isFetching) {
-      return (
-        <p>Fetching</p>
-      );
+  function renderContent() {
+    if(isFetchingEvents) {
+      return <p>fetching</p>
     }
 
     if(fetchError) {
       return <p>{fetchError}</p>
     }
 
-    if(events.length === 0) {
+    if(!event) {
       return (
-        <p>No data</p>
+        <p>The event could not be found</p>
       );
     }
 
     return (
-      <table>
-        <thead>
-          <tr>
-            { columns.map((column) => <th key={column.accessor}>{column.header}</th>) }
-          </tr>
-        </thead>
-        <tbody>
-          { events.map(event => <tr key={event.id}>
-            { columns.map((column) => <td key={column.accessor}>{event[column.accessor]}</td>) }
-          </tr>) }
-        </tbody>
-      </table>
+      <p>{event.name}</p>
     );
   }
+
   return (
-    <div className="event-page">
-      { renderEvents() }
+    <div>
+      { renderContent() }
     </div>
   )
 }

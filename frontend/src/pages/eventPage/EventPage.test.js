@@ -1,23 +1,39 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import EventPage from "./EventPage";
 
-test("renders fetching when fetching", () => {
-  render(<EventPage isFetching={true}/>);
-  expect(screen.getByText("Fetching")).toBeInTheDocument();
+beforeEach(() => {
+  jest.clearAllMocks();
 });
 
-test("renders no data when no data", () => {
-  render(<EventPage events={[]} />);
-  expect(screen.getByText("No data")).toBeInTheDocument();
+afterEach(() => {
+  jest.clearAllMocks();
 });
 
-test("renders name of event", () => {
-  render(<EventPage events={[ { name: "myNameIsHere", type: "myTypeIsHere" } ]} />);
-  expect(screen.getByText("myNameIsHere")).toBeInTheDocument();
+function mockUseParamsWithEventID(mockEventID) {
+  jest.mock("react-router-dom", () => ({
+    ...jest.requireActual("react-router-dom"),
+    useParams: () => ({
+      eventID: mockEventID
+    }),
+    //useRouteMatch: () => ({ url: "/event/eventID" })
+  }));
+}
+
+test("renders fetching if fetching", () => {
+  mockUseParamsWithEventID("abc");
+  render(<EventPage isFetchingEvents={true} />);
+  expect(screen.getByText("fetching")).toBeInTheDocument();
 });
 
-test("renders type of event", () => {
-  render(<EventPage events={[ { name: "myNameIsHere", type: "myTypeIsHere" } ]} />);
-  expect(screen.getByText("myTypeIsHere")).toBeInTheDocument();
+test("renders error if error", () => {
+  mockUseParamsWithEventID("abc");
+  render(<EventPage isFetchingEvents={false} fetchError={"could not fetch"} />);
+  expect(screen.getByText("could not fetch")).toBeInTheDocument();
 });
 
+test("renders could not be found if could not be found", () => {
+  mockUseParamsWithEventID("abc");
+  render(<EventPage events={ [] } isFetchingEvents={false} fetchError={null} />);
+  expect(screen.getByText("The event could not be found")).toBeInTheDocument();
+});

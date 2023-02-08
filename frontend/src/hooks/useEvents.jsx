@@ -2,7 +2,7 @@ import React from 'react'
 
 function useEvents() {
 
-  const [events, setEvents] = React.useState();
+  const [events, setEvents] = React.useState([]);
   const [isFetching, setIsFetching] = React.useState(false);
   const [isFetched, setIsFetched] = React.useState(false);
   const [error, setError] = React.useState();
