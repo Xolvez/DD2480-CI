@@ -1,8 +1,19 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import mockEvents from './consts/mockEvents';
 
-test('renders hello world string', () => {
-  render(<App />);
-  const appElement = screen.getByText("Hello world!")
-  expect(appElement).toBeInTheDocument();
+beforeEach(() => {
+  fetch.resetMocks();
+})
+
+test("navigates to events", () => {
+  fetch.mockResponseOnce(JSON.stringify(mockEvents));
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+
+  expect(global.window.location.pathname).toContain("/events");
 });
