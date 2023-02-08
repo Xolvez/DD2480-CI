@@ -8,6 +8,9 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.InvalidRemoteException;
 import org.eclipse.jgit.api.errors.TransportException;
+import org.springframework.stereotype.Component;
+
+@Component
 public class RepoCloner {
     public RepoCloner(){};
     File localPath;
