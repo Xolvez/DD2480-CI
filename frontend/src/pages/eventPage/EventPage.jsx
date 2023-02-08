@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCross, FaSkullCrossbones, FaSync } from 'react-icons/fa';
+import { FaSkullCrossbones, FaSync } from 'react-icons/fa';
 import { useParams } from 'react-router-dom'
 import "./eventPage.css";
 
