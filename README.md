@@ -14,7 +14,7 @@ To build and run the server, run the following command inside the backend direct
 To run the tests, use the following command inside the backend directory:
 `mvn test`
 
-##Statement of contributions
+## Statement of contributions
 Daniel Ericsson: Commits by HelloDane. Created multiple backend interfaces/functions. Implemented and tested functions for cloning and compiling repos. Code review. Wrote parts of the documentation, such as statements of contributions.
 Marcus Friberg: Commits by Xolvez. Created multiple backend interfaces/functions. Set up the project skeleton with Spring and created the frontend using React. Code review. Wrote several parts of the documentation.
 Siyang Yang: Commits by Kawbat. Created multiple backend interfaces/functions. Code review. Created GithubRequest class, build endpoints, email functionality. Wrote parts of the documentation, such as Essence state.
