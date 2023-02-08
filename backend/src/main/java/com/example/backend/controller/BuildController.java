@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BuildController {
     @Autowired
     public BuildService buildService;
-    @PostMapping("/")
+    @PostMapping("")
     public String createBuild (@RequestBody GithubRequest githubRequest) {
         String ref = githubRequest.getRef();
         String clone_url = githubRequest.getRepository().getClone_url();
