@@ -14,6 +14,9 @@ To build and run the server, run the following command inside the backend direct
 To run the tests, use the following command inside the backend directory:
 `mvn test`
 
+## Compilation/test execution implementation and testing
+The CI server supports compiling and executing the automated tests of the group project. Testing is triggered as webhook, on the branch where the change has been made, as specified in the HTTP payload. Currently, the server only does this if a commit is made to a branch called "assessment". The compilation/testing is done using methods of the RepoCloner and processGenerator classes in the utils directory. These methods are unit tested on a previous branch called "test", which is set to compile successfully but fails a single dummy test case. This branch is compiled and tested by calling "mvn test".
+ 
 ## Statement of contributions
 Daniel Ericsson: Commits by HelloDane. Created multiple backend interfaces/functions. Implemented and tested functions for cloning and compiling repos. Code review. Wrote parts of the documentation, such as statements of contributions.
 
