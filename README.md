@@ -1,3 +1,4 @@
+assessment modify
 # Assignment 2 - DD2480 - Continous Integration
 
 ## Building and testing the backend
