@@ -26,7 +26,7 @@ public class ProcessGenerator {
     private void setProcessGoal(boolean doTest) {
         String command;
         if (doTest) {
-            command = "mvn test";
+            command = "mvn test \"-Dspring.profiles.active=test\"";
         }
         else {
             command = "mvn clean install -DskipTests=true";
