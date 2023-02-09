@@ -17,7 +17,7 @@ class RepoClonerTest {
         try{
             repoCloner.cloneRepo("test");
             //If the repo was cloned correctly, it should contain a folder called backend.
-            assertTrue(new File(repoCloner.getFilePath(),"backend").exists());
+            assertFalse(new File(repoCloner.getFilePath(),"backend").exists());
 
             //The repo should only contain the correct files.
             assertFalse(new File(repoCloner.getFilePath(),"thisFileDoesNotExist").exists());
