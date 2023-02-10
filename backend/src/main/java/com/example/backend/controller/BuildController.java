@@ -22,14 +22,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("build")
 public class BuildController {
-
+    @Autowired
     private BuildService buildService;
-
+    @Autowired
     private RepoCloner repoCloner;
 
     @Autowired
     private ProcessGenerator processGenerator;
-
+    @Autowired
     private EmailService emailService;
 
     @PostMapping("")
