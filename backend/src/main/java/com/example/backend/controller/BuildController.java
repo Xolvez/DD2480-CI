@@ -45,13 +45,18 @@ public class BuildController {
         String branchName = ref.substring(ref.lastIndexOf("/") + 1);
 
         if(!branchName.equals("assessment")) {
+            System.out.println("Branch was not \"assessment\", exiting.");
             return;
         }
 
         try {
+            System.out.println("Cloning the repo...");
             repoCloner.cloneRepo(branchName);
+
             processGenerator.setDirectory(new File(repoCloner.getFilePath(),"backend"));
+            System.out.println("Running the tests...");
             processGenerator.testProject();
+
             boolean buildSuccess = processGenerator.getStatus();
             String buildMessage = processGenerator.getErrors();
 
@@ -67,13 +72,19 @@ public class BuildController {
             buildService.insert(build);
 
             if(buildSuccess) {
+                System.out.println("Tests were successful!");
+                System.out.println("Sending email");
                 emailService.email_success(email);
             }
             else {
+                System.out.println("Tests were unsuccessful...");
+                System.out.println("Build Log:");
+                System.out.println(buildMessage);
+                System.out.println("Sending email");
                 emailService.email_failure(email);
             }
 
-            System.out.println("Success!!");
+            System.out.println("Finished handling request.");
             return;
         }
         catch(Exception e) {
