@@ -35,6 +35,13 @@ If port 3000 is already in use, React will ask if you want to run the app on ano
 ## Compilation/test execution implementation and testing
 The CI server supports compiling and executing the automated tests of the group project. Testing is triggered as webhook, on the branch where the change has been made, as specified in the HTTP payload. Currently, the server only does this if a commit is made to a branch called "assessment". The compilation/testing is done using methods of the RepoCloner and ProcessGenerator classes in the utils directory. These methods are unit tested on a previous branch called "test", which is set to compile successfully but fail a single dummy test case. This branch is compiled and tested by calling "mvn test".
  
+## Notification
+Our CI server supports notification of CI results by sending an email to the project member about the build result.
+
+We use the javax.mail package to support sending the email. And we use the jodd package to create the SMTP server, open a SendMailSession and generate an Email, to implement the email sending service.
+
+The unit test of the EmailService is done by calling the interface and checking if our mailbox receives the notification email.
+
 ## Statement of contributions
 Daniel Ericsson: Commits by HelloDane. Created multiple backend interfaces/functions. Implemented and tested functions for cloning and compiling repos. Code review. Wrote parts of the documentation, such as statements of contributions.
 
