@@ -14,6 +14,27 @@ To build and run the server, run the following command inside the backend direct
 To run the tests, use the following command inside the backend directory:
 `mvn test`
 
+## Running and testing the frontend
+
+In order to run and test the frontend, npm is needed. With npm installed, enter the frontend directory and run:
+`npm install`
+
+This will install the packages required to run the frontend.
+
+To run the tests, use the following command in the same directory.
+`npm test`
+
+To start the frontend application, run the following command in the frontend directory:
+`npm start`
+
+This will start the frontend app on port 3000, and the application can be accessed at
+`http://localhost:3000`
+
+If port 3000 is already in use, React will ask if you want to run the app on another port instead. If you choose to do this, the frontend application may be unable to fetch the events from the backend server, since some browsers block cors requests to servers not configured with the Access-Control-Allow-Origin header. The server is currently configured to set this header for requests made by "http://localhost:3000", so if another port is used for the frontend, it may not work. Since the backend uses a local database, it will be empty anyway when you start up the server for the first time.
+
+## Compilation/test execution implementation and testing
+The CI server supports compiling and executing the automated tests of the group project. Testing is triggered as webhook, on the branch where the change has been made, as specified in the HTTP payload. Currently, the server only does this if a commit is made to a branch called "assessment". The compilation/testing is done using methods of the RepoCloner and ProcessGenerator classes in the utils directory. These methods are unit tested on a previous branch called "test", which is set to compile successfully but fail a single dummy test case. This branch is compiled and tested by calling "mvn test".
+ 
 ## Notification
 Our CI server supports notification of CI results by sending an email to the project member about the build result.
 
