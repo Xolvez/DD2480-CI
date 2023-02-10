@@ -20,17 +20,15 @@ import java.util.List;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("build")
+@RequestMapping("/")
 public class BuildController {
     @Autowired
     private BuildService buildService;
-
     @Autowired
     private RepoCloner repoCloner;
 
     @Autowired
     private ProcessGenerator processGenerator;
-
     @Autowired
     private EmailService emailService;
 
