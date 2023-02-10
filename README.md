@@ -14,6 +14,13 @@ To build and run the server, run the following command inside the backend direct
 To run the tests, use the following command inside the backend directory:
 `mvn test`
 
+## Notification
+Our CI server supports notification of CI results by sending an email to the project member about the build result.
+
+We use the javax.mail package to support sending the email. And we use the jodd package to create the SMTP server, open a SendMailSession and generate an Email, to implement the email sending service.
+
+The unit test of the EmailService is done by calling the interface and checking if our mailbox receives the notification email.
+
 ## Statement of contributions
 Daniel Ericsson: Commits by HelloDane. Created multiple backend interfaces/functions. Implemented and tested functions for cloning and compiling repos. Code review. Wrote parts of the documentation, such as statements of contributions.
 
