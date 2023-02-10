@@ -49,6 +49,8 @@ Marcus Friberg: Commits by Xolvez. Created multiple backend interfaces/functions
 
 Siyang Yang: Commits by Kawbat. Created multiple backend interfaces/functions. Code review. Created GithubRequest class, build endpoints, email functionality. Wrote parts of the documentation, such as Essence state.
 
+During this project, we believe we have made several remarkable things. First of all, we used a very popular Java framework called Spring to create the backend server. This required us to gain a deep understanding about how Spring applications work, which will likely benefit us throughout our careers. We also used the build tool Maven, which was used to build, run, test, and manage dependencies for our backend server. Finally, we used React to build our frontend application, and learned to use the node package manager, npm, as well as how to write frontend tests and mock modules and functions.
+
 ## Essence standard assessment
 According to the Essence standard, there are five states that describe a team and its progress. They are Seeded, Formed, Collaborating, Performing, and Adjourned.
 
